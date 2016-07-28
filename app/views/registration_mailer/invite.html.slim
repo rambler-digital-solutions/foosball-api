@@ -1,0 +1,11 @@
+h1 Congratulations!!! You were invited to our awesome project!
+
+p
+  | Click the link below to confirm your email address and complete regirstration process
+    or copy registration code to the app
+
+= link_to 'Confirmation link', confirm_url(code: @confirmation_code)
+
+p Your confirmation code:
+
+h2 = @confirmation_code

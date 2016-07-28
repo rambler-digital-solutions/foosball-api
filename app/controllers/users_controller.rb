@@ -30,4 +30,8 @@ class UsersController < ApplicationController
     params.require(:user)
       .permit(:full_name, :username)
   end
+
+  def invitation_params
+    params.require(:user).permit(:email)
+  end
 end
