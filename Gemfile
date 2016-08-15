@@ -20,6 +20,7 @@ gem 'puma', '~> 3.0'
 # gem 'rack-cors'
 
 gem 'slim'
+gem 'clearance'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

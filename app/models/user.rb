@@ -1,5 +1,7 @@
 # TODO: Setup default room for every new user
 class User < ApplicationRecord
+  include Clearance::User
+
   has_and_belongs_to_many :rooms
   
   validates :full_name, presence: true, if: %i(confirmed? password_changed?)

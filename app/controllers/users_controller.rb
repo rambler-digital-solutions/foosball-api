@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, on: %i(show update destroy)
+  before_action :set_user, only: %i(show update destroy)
+
+  def index
+    render json: User.all.as_json
+  end
 
   # TODO: Setup authorization. Only admin can create another users
   def create
@@ -7,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: @user
+    render json: @user.as_json
   end
 
   def update
