@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 [
-  { name: :general, public: true },
-  { name: :ios, public: false }
+  { name: :general, is_public: true },
+  { name: :ios, is_public: false }
 ].map { |r| Room.find_or_create_by(r) }
 
 users = [
@@ -25,6 +25,12 @@ users = [
 users.first.rooms = Room.where(name: :general)
 users.second.rooms = Room.where(name: %i(general ios))
 
-game = Game.create!(room: Room.first, score_a: 8, score_b: 0)
-player1 = Player.create!(user: User.first, game: game, color: :white, amplua: :defender)
-player1 = Player.create!(user: User.last, game: game, color: :red, amplua: :forward)
+invite = Invitation.create!(message: 'Давайте соберем прокрут!', users: users)
+
+game = Game.create!(invitation: invite, status: :active)
+
+team_game1 = TeamGame.create(points: 7, game: game, color: :red)
+team_game2 = TeamGame.create(points: 0, game: game, color: :white)
+
+player1 = Player.create!(user: User.first, team_game: team_game1, amplua: :defender)
+player1 = Player.create!(user: User.last, team_game: team_game2, amplua: :forward)

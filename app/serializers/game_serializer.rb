@@ -1,10 +1,5 @@
 class GameSerializer < ActiveModel::Serializer
-  attributes :id, :status, :created_at, :updated_at, :score
+  attributes :id, :status, :created_at, :updated_at, :invitation_id
 
-  belongs_to :room
-  has_many :players
-
-  def score
-    [object.score_a, object.score_b]
-  end
+  has_many :team_games, key: :teams
 end

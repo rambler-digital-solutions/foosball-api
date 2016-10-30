@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 
   # TODO: Setup authorization. Only admin can create another users
   def create
-    if @user = User.create(user_parameters)
+    # TODO: Add UserService which attach default rooms when creating user
+    if @user = User.create!(user_parameters)
       render json: @user, status: :created
     else
       render json: @user.errors.as_json, status: :bad_request

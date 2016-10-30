@@ -1,9 +1,9 @@
 class GameService
   def initialize(params)
-    @invitation = Invitation.find(params[:invitation_id])
+    @params = params
   end
 
-  def create
-    # TODO: Better to put it inside a transaction
+  def create!
+    Game.create!(@params)
   end
 end

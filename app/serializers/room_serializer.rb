@@ -1,5 +1,5 @@
 class RoomSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :public, :default, :created_at, :updated_at
+  attributes :id, :name, :description, :is_public, :is_default, :created_at, :updated_at
 
-  has_many :games
+  has_many :users
 end
