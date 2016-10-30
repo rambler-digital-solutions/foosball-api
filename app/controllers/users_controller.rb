@@ -2,25 +2,31 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i(show update destroy)
 
   def index
-    render json: User.all.as_json
+    render json: User.all
   end
 
   # TODO: Setup authorization. Only admin can create another users
   def create
-    User.create(user_parameters)
+    if @user = User.create(user_parameters)
+      render json: @user, status: :created
+    else
+      render json: @user.errors.as_json, status: :bad_request
+    end
   end
 
   def show
-    render json: @user.as_json
+    render json: @user
   end
 
   def update
     @user.update_attributes(user_parameters)
+    render json: @user
   end
 
   def destroy
     # TODO: Disable actual user removing. Just set deleted flag
     @user.destroy
+    head :no_content
   end
 
   private
@@ -32,7 +38,7 @@ class UsersController < ApplicationController
   def user_parameters
     # TODO: allow to add rooms inline
     params.require(:user)
-      .permit(:full_name, :username)
+      .permit(:full_name, :email)
   end
 
   def invitation_params

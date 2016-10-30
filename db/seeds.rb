@@ -14,13 +14,17 @@
 users = [
   {
     full_name: 'Илья Конюхов',
-    username: 'runfor'
+    email: 'i.konyukhov@rambler-co.ru'
   },
   {
     full_name: 'Стас Цыганов',
-    username: 's.tsyganov'
+    email: 's.tsyganov@rambler-co.ru'
   }
 ].map { |u| User.find_or_create_by(u) }
 
-users.first.rooms << Room.where(name: :general)
+users.first.rooms = Room.where(name: :general)
 users.second.rooms = Room.where(name: %i(general ios))
+
+game = Game.create!(room: Room.first, score_a: 8, score_b: 0)
+player1 = Player.create!(user: User.first, game: game, color: :white, amplua: :defender)
+player1 = Player.create!(user: User.last, game: game, color: :red, amplua: :forward)

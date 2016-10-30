@@ -1,3 +1,3 @@
-Clearance.configure do |config|
-  config.mailer_sender = "reply@example.com"
-end
+# Clearance.configure do |config|
+#   config.mailer_sender = "reply@example.com"
+# end

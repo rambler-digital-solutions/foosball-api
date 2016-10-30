@@ -7,7 +7,11 @@ class RoomsController < ApplicationController
 
   # TODO: Setup authorization. Only admin can create rooms
   def create
-    Room.create(room_parameters)
+    if @room = Room.create(room_parameters)
+      render json: @room, status: :created
+    else
+      render json: @room.errors.as_json, status: :bad_request
+    end
   end
 
   def show
@@ -16,11 +20,13 @@ class RoomsController < ApplicationController
 
   def update
     @room.update_attributes(room_parameters)
+    render json: @room
   end
 
   def destroy
     # TODO: Disable actual room removing. Just set deleted flag
     @room.destroy
+    head :no_content
   end
 
   private

@@ -16,7 +16,7 @@
 #
 default: &default
   adapter: postgresql
-  host: dockerhost
+  host: localhost
   username: postgres
   password: postgres
   encoding: unicode
@@ -81,6 +81,7 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
   <<: *default
   database: foosball-api_production
