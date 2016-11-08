@@ -34,7 +34,9 @@ group :development do
   gem 'letter_opener'
 
   gem 'capistrano', '~> 3.6'
-  gem 'procodile-capistrano'
+  gem 'capistrano-bundler', '~> 1.2'
+  gem 'capistrano-rake'
+  gem 'capistrano-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
