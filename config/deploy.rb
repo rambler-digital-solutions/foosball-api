@@ -19,6 +19,7 @@ set :linked_dirs, fetch(:linked_dirs, []) + %w(log tmp/pids vendor/bundle public
 
 set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
 # Default value for :scm is :git
 # set :scm, :git
