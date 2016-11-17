@@ -78,6 +78,7 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
+    json (1.8.3)
     jsonapi (0.1.1.beta6)
       jsonapi-parser (= 0.1.1.beta3)
       jsonapi-renderer (= 0.1.1.beta1)
@@ -108,6 +109,8 @@ GEM
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     pg (0.19.0)
+    procodile (1.0.5)
+      json
     protobuf (3.6.12)
       activesupport (>= 3.2)
       middleware
@@ -190,6 +193,7 @@ DEPENDENCIES
   letter_opener
   listen (~> 3.0.5)
   pg (~> 0.19)
+  procodile
   protobuf
   pry-byebug
   puma (~> 3.0)
