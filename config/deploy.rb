@@ -12,7 +12,7 @@ set :deploy_to, '/home/foosball/app'
 
 set :ssh_options, forward_agent: true
 
-set :linked_files, fetch(:linked_files, [])
+set :linked_files, fetch(:linked_files, []) + %w(.env.local)
 # TODO: If future we will switch to store assets on webdav
 # but now this directory will grow with every release
 set :linked_dirs, fetch(:linked_dirs, []) + %w(log tmp/pids vendor/bundle public/assets)
