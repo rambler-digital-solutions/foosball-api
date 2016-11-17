@@ -82,8 +82,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 
+staging:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+
 production:
   <<: *default
-  database: foosball-api_production
-  username: foosball-api
-  password: <%= ENV['FOOSBALL-API_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
