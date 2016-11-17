@@ -38,6 +38,6 @@ class RoomsController < ApplicationController
   def room_parameters
     # TODO: allow to add rooms inline
     params.require(:room)
-      .permit(:name, :description, :public)
+      .permit(:name, :description, :is_public, :is_default)
   end
 end

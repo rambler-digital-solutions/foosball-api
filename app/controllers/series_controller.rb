@@ -32,6 +32,6 @@ class SeriesController < ApplicationController
   end
 
   def series_params
-    params.require(:series).permit(:message)
+    params.require(:series).permit!
   end
 end
