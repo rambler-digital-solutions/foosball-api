@@ -27,14 +27,14 @@ namespace :procodile do
     end
   end
 
-  after 'deploy:finished', 'procodile:restart'
+   # after 'deploy:finished', 'procodile:restart'
 
   def procodile_command(command, options = "")
     binary = fetch(:procodile_binary, 'procodile')
     if processes = fetch(:processes, nil)
       options = "-p #{processes} " + options
     end
-    command = "bundle exec #{binary} #{command} -r #{current_path} #{options}"
+    command = "rbenv exec bundle exec #{binary} #{command} -r #{current_path} #{options}"
     if user = fetch(:procodile_user, nil)
       "sudo -u #{user} #{command}"
     else
