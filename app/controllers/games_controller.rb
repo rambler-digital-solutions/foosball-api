@@ -39,7 +39,7 @@ class GamesController < ApplicationController
   def game_parameters
     params.require(:game)
       .permit(
-        :invitation_id,
+        :series_id,
         :status,
         team_games_attributes: [
           :points,

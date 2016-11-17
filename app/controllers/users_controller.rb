@@ -42,7 +42,7 @@ class UsersController < ApplicationController
       .permit(:full_name, :email)
   end
 
-  def invitation_params
+  def series_params
     params.require(:user).permit(:email)
   end
 end

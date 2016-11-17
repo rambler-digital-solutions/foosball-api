@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
-  belongs_to :invitation
+  belongs_to :series
   has_many :team_games, inverse_of: :game
   has_many :players, through: :team_games
 

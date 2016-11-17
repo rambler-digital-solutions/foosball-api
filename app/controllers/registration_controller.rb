@@ -1,7 +1,7 @@
 class RegistrationController < ApplicationController
   def invite
     confirmation_code = SecureRandom.hex(4).upcase
-    @user = User.create!(confirmation_code: confirmation_code, **invitation_params.symbolize_keys)
+    @user = User.create!(confirmation_code: confirmation_code, **series_params.symbolize_keys)
 
     RegistrationMailer.invite(@user).deliver
 
@@ -25,7 +25,7 @@ class RegistrationController < ApplicationController
 
   private
 
-  def invitation_params
+  def series_params
     params.permit(:email)
   end
 end
