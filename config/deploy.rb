@@ -10,6 +10,10 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/foosball/app'
 
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
+
 set :linked_files, fetch(:linked_files, []) + %w(.env.local)
 # TODO: If future we will switch to store assets on webdav
 # but now this directory will grow with every release
@@ -17,7 +21,8 @@ set :linked_dirs, fetch(:linked_dirs, []) + %w(log tmp/pids vendor/bundle public
 
 set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_map_bins, %w{rake gem bundle ruby rails procodile}
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 # Default value for :scm is :git
 # set :scm, :git

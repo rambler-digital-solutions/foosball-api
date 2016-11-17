@@ -6,6 +6,13 @@ namespace :procodile do
     end
   end
 
+  desc 'Start procodile processes'
+  task :env do
+    on roles(fetch(:procodile_roles, [:app])) do
+      execute :env
+    end
+  end
+
   desc 'Stop procodile processes'
   task :stop do
     on roles(fetch(:procodile_roles, [:app])) do
