@@ -10,8 +10,6 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/foosball/app'
 
-set :ssh_options, forward_agent: true
-
 set :linked_files, fetch(:linked_files, []) + %w(.env.local)
 # TODO: If future we will switch to store assets on webdav
 # but now this directory will grow with every release
