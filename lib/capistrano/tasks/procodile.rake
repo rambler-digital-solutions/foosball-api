@@ -34,7 +34,7 @@ namespace :procodile do
     if processes = fetch(:processes, nil)
       options = "-p #{processes} " + options
     end
-    command = "#{binary} #{command} -r #{current_path} #{options}"
+    command = "bundle exec #{binary} #{command} -r #{current_path} #{options}"
     if user = fetch(:procodile_user, nil)
       "sudo -u #{user} #{command}"
     else
