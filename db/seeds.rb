@@ -25,9 +25,9 @@ users = [
 users.first.rooms = Room.where(name: :general)
 users.second.rooms = Room.where(name: %i(general ios))
 
-invite = Invitation.create!(message: 'Давайте соберем прокрут!', users: users)
+series = Series.create!(users: users)
 
-game = Game.create!(invitation: invite, status: :active)
+game = Game.create!(series: series, status: :active)
 
 team_game1 = TeamGame.create(points: 7, game: game, color: :red)
 team_game2 = TeamGame.create(points: 0, game: game, color: :white)
