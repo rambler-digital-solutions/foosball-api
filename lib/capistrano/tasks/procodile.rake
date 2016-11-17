@@ -27,7 +27,7 @@ namespace :procodile do
     end
   end
 
-   # after 'deploy:finished', 'procodile:restart'
+  # after 'deploy:finished', 'procodile:restart'
 
   def procodile_command(command, options = "")
     binary = fetch(:procodile_binary, 'procodile')
