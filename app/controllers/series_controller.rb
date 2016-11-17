@@ -32,6 +32,6 @@ class SeriesController < ApplicationController
   end
 
   def series_params
-    params.require(:series).permit!
+    params.require(:series).permit! if params[:series].present?
   end
 end
